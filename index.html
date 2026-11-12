@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ripon Islam | Mechanical Design & Robotics Portfolio</title>
     <style>
-        /* বেসিক স্টাইল ও ফন্ট */
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --border-color: #1f2937;
+            --accent: #0ea5e9;
+            --accent-glow: rgba(14, 165, 233, 0.15);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,214 +24,269 @@
         }
 
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
+            /* ইঞ্জিনিয়ারিং গ্রিড ব্যাকগ্রাউন্ড ভাইব */
+            background-image: 
+                linear-gradient(to right, rgba(31, 41, 55, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(31, 41, 55, 0.2) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
-        /* নেভিগেশন বার */
         header {
-            background-color: rgba(15, 23, 42, 0.95);
-            padding: 20px 10%;
+            background-color: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #1e293b;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            color: #38bdf8;
+            color: var(--accent);
             text-decoration: none;
+            letter-spacing: 0.5px;
         }
 
         nav a {
-            color: #cbd5e1;
+            color: var(--text-muted);
             text-decoration: none;
-            margin-left: 25px;
+            margin-left: 18px;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
         nav a:hover {
-            color: #38bdf8;
+            color: var(--accent);
         }
 
-        /* হিরো সেকশন (পরিচিতি) */
+        /* Hero Section */
         .hero {
-            padding: 100px 10%;
+            padding: 90px 8%;
             text-align: center;
-            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+            background: radial-gradient(circle at center, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
         }
 
         .hero h1 {
             font-size: 3rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #ffffff;
+            letter-spacing: 1px;
         }
 
         .hero h1 span {
-            color: #38bdf8;
+            color: var(--accent);
+        }
+
+        .hero h3 {
+            font-size: 1.15rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
+            font-size: 1rem;
+            color: var(--text-muted);
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
+        }
+
+        .contact-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .pill {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 28px;
-            background-color: #38bdf8;
-            color: #0f172a;
+            padding: 10px 24px;
+            background-color: var(--accent);
+            color: #0b0f19;
             font-weight: bold;
             text-decoration: none;
             border-radius: 6px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             margin: 5px;
+            font-size: 0.95rem;
         }
 
         .btn:hover {
             background-color: #0284c7;
-            color: #ffffff;
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
         }
 
         .btn-outline {
             background-color: transparent;
-            border: 2px solid #38bdf8;
-            color: #38bdf8;
+            border: 2px solid var(--accent);
+            color: var(--accent);
         }
 
         .btn-outline:hover {
-            background-color: #38bdf8;
-            color: #0f172a;
+            background-color: var(--accent);
+            color: #0b0f19;
         }
 
-        /* সাধারণ সেকশন স্টাইল */
         section {
-            padding: 80px 10%;
+            padding: 65px 8%;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            color: #38bdf8;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
-        /* স্কিলস সেকশন */
-        .skills-grid {
+        /* Cards Layout */
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .skill-card {
-            background-color: #1e293b;
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
             padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #334155;
-            transition: transform 0.3s;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .skill-card h3 {
+        .card h3 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            font-size: 0.9rem;
             margin-bottom: 10px;
-            color: #f8fafc;
         }
 
-        .skill-card p {
-            color: #94a3b8;
-            font-size: 0.95rem;
+        .card .date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: rgba(31, 41, 55, 0.6);
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
         }
 
-        /* প্রজেক্ট সেকশন */
-        .project-card {
-            background-color: #1e293b;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-wrap: wrap;
-            border: 1px solid #334155;
-            max-width: 1000px;
-            margin: 0 auto;
+        .card p, .card li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .project-img {
-            flex: 1 1 400px;
-            background-color: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .card ul {
+            padding-left: 16px;
+            margin-top: 8px;
         }
 
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .card li {
+            margin-bottom: 5px;
         }
 
-        .project-info {
-            flex: 1 1 450px;
-            padding: 35px;
-        }
-
-        .project-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #38bdf8;
-        }
-
-        .project-info p {
-            color: #cbd5e1;
-            margin-bottom: 20px;
-        }
-
+        /* Tags */
         .tags {
-            margin-bottom: 25px;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         .tag {
             display: inline-block;
-            background-color: #0f172a;
-            color: #38bdf8;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 8px;
-            margin-bottom: 8px;
-            border: 1px solid #38bdf8;
+            background-color: rgba(14, 165, 233, 0.1);
+            color: var(--accent);
+            padding: 3px 9px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border: 1px solid rgba(14, 165, 233, 0.3);
         }
 
-        /* ফুটার / যোগাযোগ */
+        /* Area of interest pills */
+        .interest-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .interest-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
         footer {
-            background-color: #020617;
+            background-color: #060910;
             text-align: center;
-            padding: 40px 10%;
-            border-top: 1px solid #1e293b;
+            padding: 35px 8%;
+            border-top: 1px solid var(--border-color);
         }
 
         footer p {
-            color: #94a3b8;
-            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
         }
 
         .social-links a {
-            color: #38bdf8;
+            color: var(--accent);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            margin: 0 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .social-links a:hover {
@@ -230,86 +294,246 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            header { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2.3rem; }
+            header { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- নেভিগেশন -->
+    <!-- Header / Navbar -->
     <header>
-        <a href="#" class="logo">Ripon Islam</a>
+        <a href="#" class="logo">RIPON ISLAM</a>
         <nav>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
             <a href="#projects">Projects</a>
+            <a href="#achievements">Achievements</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <!-- হিরো / পরিচিতি -->
+    <!-- Hero Section -->
     <section class="hero" id="about">
         <h1>Hi, I'm <span>Ripon Islam</span></h1>
-        <p>Mechanical Engineering Student at RUET | Aspiring Design & Manufacturing Engineer | SOLIDWORKS & Onshape CAD Designer | Robotics & UAV Systems Enthusiast</p>
-        <a href="#projects" class="btn">View My Projects</a>
+        <h3>Mechanical Engineering Student | CAD, Manufacturing & Simulation | Robotics</h3>
+        <p>Mechanical Engineering student at RUET with practical experience in SOLIDWORKS, mechanical design, 3D printing, and robotics[cite: 6]. Skilled in CAD modeling, assembly, and engineering drawing[cite: 6].</p>
+        
+        <div class="contact-pills">
+            <span class="pill">📍 Rajshahi, Bangladesh</span>
+            <span class="pill">📞 01308122050[cite: 6]</span>
+            <span class="pill">✉️ ripon2402156@gmail.com[cite: 6]</span>
+            <a href="https://www.linkedin.com" target="_blank" class="pill">🔗 LinkedIn Profile</a>
+            <a href="https://grabcad.com" target="_blank" class="pill">📐 GrabCAD Designs</a>
+            <a href="https://drive.google.com" target="_blank" class="pill">📄 Cad Design PDF (Drive)</a>
+        </div>
+
+        <a href="#projects" class="btn">View Engineering Projects</a>
         <a href="https://github.com/Ripon-8922" target="_blank" class="btn btn-outline">GitHub Profile</a>
     </section>
 
-    <!-- দক্ষতা (Skills) -->
+    <!-- Technical Skills -->
     <section id="skills">
         <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>3D CAD Modeling</h3>
-                <p>SOLIDWORKS, Onshape, Part & Complex Assembly Design, Technical Drafting</p>
+        <div class="grid-2">
+            <div class="card">
+                <h3>CAD & Design</h3>
+                <p>SOLIDWORKS (Part Modeling, Assembly, Engineering Drawing) proficient; Onshape working knowledge, Fusion 360[cite: 6].</p>
             </div>
-            <div class="skill-card">
-                <h3>Rapid Prototyping</h3>
-                <p>3D Printing (FDM/PETG), Design for Manufacturing (DFM), Tolerance Analysis</p>
+            <div class="card">
+                <h3>Simulation & Analysis</h3>
+                <p>ANSYS Mechanical Basic Modal Analysis, Explicit Dynamics; Finite Element Analysis (FEA) fundamentals[cite: 6].</p>
             </div>
-            <div class="skill-card">
-                <h3>Robotics & UAVs</h3>
-                <p>Actuator Integration, Mechanism Design, Structural Frame Architecture</p>
+            <div class="card">
+                <h3>Manufacturing</h3>
+                <p>3D Printing, Mechanical Assembly & Fabrication, Design for Manufacturability (DFM)[cite: 6].</p>
             </div>
-            <div class="skill-card">
-                <h3>Engineering Analysis</h3>
-                <p>Motion Study, Stress & Structural Simulation, Mechanism Optimization</p>
+            <div class="card">
+                <h3>Engineering Practice & Soft Skills</h3>
+                <p>Mechanical System Integration & Testing, Prototyping, Design Optimization, Troubleshooting, Team Leadership[cite: 6].</p>
             </div>
         </div>
     </section>
 
-    <!-- প্রজেক্ট সেকশন -->
-    <section id="projects">
-        <h2 class="section-title">Featured Engineering Project</h2>
-        <div class="project-card">
-            <div class="project-img">
-                <!-- আপনার ড্রোন প্রজেক্টের ছবির নাম drone-payload.jpg দিয়ে সেভ করুন -->
-                <img src="drone-payload.jpg" alt="Drone Payload Release Mechanism CAD">
+    <!-- Engineering Experience -->
+    <section id="experience" style="background-color: rgba(17, 24, 39, 0.4);">
+        <h2 class="section-title">Engineering Experience</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Robotics Research Associate</h3>
+                <h4>RIVO AI Robotics</h4>
+                <span class="date">Jul 2026 - Present[cite: 6]</span>
+                <ul>
+                    <li>Contributing to humanoid robot mechanical design and CAD development[cite: 6].</li>
+                    <li>Developing robot components through 3D printing and fabrication[cite: 6].</li>
+                    <li>Supporting mechanical assembly, integration, and testing[cite: 6].</li>
+                    <li>Participating in robotics research and development[cite: 6].</li>
+                </ul>
             </div>
-            <div class="project-info">
-                <h3>Drone Payload Release Mechanism</h3>
-                <p>A precision-engineered mechanical payload release and deployment system designed for multirotor UAV platforms. Modeled in CAD for lightweight integration, high structural rigidity, and reliable servo-actuated remote payload dropping during flight.</p>
+            <div class="card">
+                <h3>R&D Team Member</h3>
+                <h4>Team Zenith RUET (Mars Rover Team)</h4>
+                <span class="date">2026 - Present[cite: 6]</span>
+                <ul>
+                    <li>Contributing to Mars Rover research, mechanical design, and development[cite: 6].</li>
+                    <li>Working on CAD modeling, prototyping, and design optimization[cite: 6].</li>
+                    <li>Previously Junior Designer, Mechanical Team (Mar 2026 - 2026) designing chassis, suspension, and mobility systems.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Executive Member</h3>
+                <h4>Society of Computer Aided Designers, RUET (SCADR)</h4>
+                <span class="date">Jul 2026 - Present (Member: Aug 2025 - Jul 2026)[cite: 7]</span>
+                <ul>
+                    <li>Serving in an executive capacity supporting CAD workshops, design training sessions, and organizational activities[cite: 7].</li>
+                    <li>Completed structured SOLIDWORKS training organized by SCADR[cite: 7].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>General Member</h3>
+                <h4>IMechE RUET Student Chapter</h4>
+                <span class="date">Sep 2025 - Present[cite: 7]</span>
+                <ul>
+                    <li>Participating in professional development sessions and engineering seminars organized by IMechE[cite: 7].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>B.Sc. in Mechanical Engineering</h3>
+                <h4>Rajshahi University of Engineering & Technology (RUET)</h4>
+                <span class="date">May 2025 - Present[cite: 6]</span>
+                <p>Rajshahi, Bangladesh[cite: 6]</p>
+            </div>
+            <div class="card">
+                <h3>Higher Secondary Certificate (HSC), Science</h3>
+                <h4>Nilphamari Government College</h4>
+                <span class="date">Feb 2023 - Jun 2024[cite: 6]</span>
+                <p>GPA: 5.00 / 5.00[cite: 6]</p>
+            </div>
+            <div class="card">
+                <h3>Secondary School Certificate (SSC), Science</h3>
+                <h4>Al-Hera Educare Home High School</h4>
+                <span class="date">Jan 2017 - Jun 2022[cite: 6]</span>
+                <p>GPA: 5.00 / 5.00 | Jaldhaka, Nilphamari[cite: 6]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Projects -->
+    <section id="projects" style="background-color: rgba(17, 24, 39, 0.4);">
+        <h2 class="section-title">Selected Engineering Projects</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Humanoid Robot Development</h3>
+                <span class="date">2026 - Present</span>
+                <p>Mechanical design, structural hardware integration, 3D printing execution, and joint mechanism configurations for custom humanoid robot platforms.</p>
+                <div class="tags">
+                    <span class="tag">SOLIDWORKS</span>
+                    <span class="tag">3D Printing</span>
+                    <span class="tag">Robotics</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Mars Rover Subsystem Design</h3>
+                <span class="date">Team Zenith RUET | 2026[cite: 7]</span>
+                <p>Developed SOLIDWORKS CAD models for a competition-level Mars Rover, focusing on chassis structure, suspension geometry, and mobility mechanisms[cite: 7].</p>
+                <div class="tags">
+                    <span class="tag">SOLIDWORKS</span>
+                    <span class="tag">Chassis & Suspension</span>
+                    <span class="tag">DFM</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Drone Payload Drop Mechanism</h3>
+                <span class="date">Independent Project | 2025 - 2026[cite: 7]</span>
+                <p>Modeled a custom mechanical payload release system integrated with a carbon-fiber quadcopter frame[cite: 7] for remote-triggered operations.</p>
                 <div class="tags">
                     <span class="tag">SOLIDWORKS</span>
                     <span class="tag">UAV Payload</span>
-                    <span class="tag">3D Printing</span>
-                    <span class="tag">Servo Actuation</span>
+                    <span class="tag">Mechanism Design</span>
                 </div>
-                <a href="https://github.com/Ripon-8922/Drone-Payload-Mechanism" target="_blank" class="btn">View on GitHub</a>
+            </div>
+            <div class="card">
+                <h3>CAD-to-Manufacture Kiosk</h3>
+                <span class="date">Independent Project | 2025 - 2026[cite: 7]</span>
+                <p>Designed a kiosk structure in SOLIDWORKS and carried it through to a physically fabricated final product, gaining exposure to the full design-to-manufacture workflow[cite: 7].</p>
+                <div class="tags">
+                    <span class="tag">SOLIDWORKS</span>
+                    <span class="tag">Fabrication</span>
+                    <span class="tag">Prototyping</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Additional Design Practice</h3>
+                <span class="date">2025 - 2026[cite: 7]</span>
+                <p>Wheelchair assembly, gear-train mechanisms, and aerospace/rocket concept models, building proficiency across assemblies and technical drawings[cite: 7].</p>
+                <div class="tags">
+                    <span class="tag">Assemblies</span>
+                    <span class="tag">Aerospace Concepts</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- যোগাযোগ -->
+    <!-- Competitions & Certifications -->
+    <section id="achievements">
+        <h2 class="section-title">Competitions & Certifications</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🏆 Competitions & Achievements</h3>
+                <ul>
+                    <li><strong>7th Position & Team Lead</strong> - KUET Ignition '26 National CAD Contest (Team Axis Trinity)[cite: 7].</li>
+                    <li><strong>4th Position</strong> - MIST Blitz CAD Clash 2026, 1st Bangladesh Formula Student & Automotive Engineering Summit[cite: 6, 7].</li>
+                    <li><strong>Participant</strong> - CELESTRA 26 CAD Competition, MIST[cite: 7].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📜 Certifications</h3>
+                <ul>
+                    <li>SOLIDWORKS Part Modeling, Basic Assembly and Drawing Training, SCADR RUET (Jul 2026)[cite: 6, 7].</li>
+                    <li>Certificate of Participation (4th Position) - CAD Clash, MIST Blitz (Jun 2026)[cite: 7].</li>
+                    <li>Certificate of Achievement (7th Position) - Ignition 2026, KUET (Apr 2026)[cite: 7].</li>
+                    <li>Certificate of Achievement - CELESTRA 26, MIST Eindhoven Club (Mar 2026)[cite: 7].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas of Interest -->
+    <section style="background-color: rgba(17, 24, 39, 0.4); text-align: center;">
+        <h2 class="section-title">Areas of Interest</h2>
+        <div class="interest-cloud">
+            <span class="interest-item">Mechanical Design</span>
+            <span class="interest-item">Robotics & Automation</span>
+            <span class="interest-item">Engineering Research</span>
+            <span class="interest-item">Technology Innovation</span>
+            <span class="interest-item">Mars Rover</span>
+            <span class="interest-item">Rocket Engineering</span>
+            <span class="interest-item">Missile Design</span>
+            <span class="interest-item">Aeronautical Engineering</span>
+            <span class="interest-item">CFD Simulation</span>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
     <footer id="contact">
-        <h2 style="color: #fff; margin-bottom: 10px;">Let's Connect</h2>
-        <p>Rajshahi, Bangladesh | Mechanical Design & Robotics</p>
+        <h2 style="color: #fff; margin-bottom: 10px; font-size: 1.5rem;">Let's Connect</h2>
+        <p>Rajshahi, Bangladesh | Languages: Bengali (Native), English (Professional Working Proficiency)[cite: 6]</p>
         <div class="social-links">
             <a href="https://github.com/Ripon-8922" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://grabcad.com" target="_blank">GrabCAD</a>
+            <a href="mailto:ripon2402156@gmail.com">Email</a>
         </div>
-        <p style="margin-top: 25px; font-size: 0.85rem;">&copy; 2026 Ripon Islam. All rights reserved.</p>
+        <p style="margin-top: 25px; font-size: 0.8rem; color: #6b7280;">&copy; 2026 Ripon Islam. All rights reserved.</p>
     </footer>
 
 </body>
