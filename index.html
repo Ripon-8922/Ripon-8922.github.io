@@ -6,13 +6,13 @@
     <title>Ripon Islam | Mechanical Design & Robotics Portfolio</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #111827;
-            --border-color: #1f2937;
-            --accent: #0ea5e9;
-            --accent-glow: rgba(14, 165, 233, 0.15);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --bg-color: #1c1917; /* মরুর মতো উষ্ণ বাদামী-ধূসর ডার্ক টোন */
+            --card-bg: #292524;
+            --border-color: #44403c;
+            --accent: #d97706; /* ওয়ার্ম অরেঞ্জ/গোল্ডেন অ্যাকসেন্ট */
+            --accent-glow: rgba(217, 119, 6, 0.2);
+            --text-main: #f5f5f4;
+            --text-muted: #a8a29e;
         }
 
         * {
@@ -27,15 +27,14 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            /* ইঞ্জিনিয়ারিং গ্রিড ব্যাকগ্রাউন্ড ভাইব */
             background-image: 
-                linear-gradient(to right, rgba(31, 41, 55, 0.2) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(31, 41, 55, 0.2) 1px, transparent 1px);
-            background-size: 30px 30px;
+                linear-gradient(to right, rgba(68, 64, 60, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(68, 64, 60, 0.15) 1px, transparent 1px);
+            background-size: 35px 35px;
         }
 
         header {
-            background-color: rgba(11, 15, 25, 0.9);
+            background-color: rgba(28, 25, 23, 0.92);
             backdrop-filter: blur(10px);
             padding: 18px 8%;
             display: flex;
@@ -68,11 +67,27 @@
             color: var(--accent);
         }
 
-        /* Hero Section */
         .hero {
-            padding: 90px 8%;
+            padding: 80px 8%;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
+        }
+
+        /* প্রফেশনাল গোল রাউন্ড প্রোফাইল পিকচার স্টাইল */
+        .profile-img-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero h1 {
@@ -129,7 +144,7 @@
             display: inline-block;
             padding: 10px 24px;
             background-color: var(--accent);
-            color: #0b0f19;
+            color: #1c1917;
             font-weight: bold;
             text-decoration: none;
             border-radius: 6px;
@@ -139,8 +154,9 @@
         }
 
         .btn:hover {
-            background-color: #0284c7;
-            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+            background-color: #b45309;
+            box-shadow: 0 0 15px rgba(217, 119, 6, 0.4);
+            color: #fff;
         }
 
         .btn-outline {
@@ -151,7 +167,7 @@
 
         .btn-outline:hover {
             background-color: var(--accent);
-            color: #0b0f19;
+            color: #1c1917;
         }
 
         section {
@@ -167,7 +183,6 @@
             text-transform: uppercase;
         }
 
-        /* Cards Layout */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -209,7 +224,7 @@
         .card .date {
             font-size: 0.8rem;
             color: var(--text-muted);
-            background: rgba(31, 41, 55, 0.6);
+            background: rgba(68, 64, 60, 0.6);
             padding: 3px 8px;
             border-radius: 4px;
             display: inline-block;
@@ -230,7 +245,6 @@
             margin-bottom: 5px;
         }
 
-        /* Tags */
         .tags {
             margin-top: 15px;
             margin-bottom: 15px;
@@ -238,17 +252,16 @@
 
         .tag {
             display: inline-block;
-            background-color: rgba(14, 165, 233, 0.1);
+            background-color: rgba(217, 119, 6, 0.1);
             color: var(--accent);
             padding: 3px 9px;
             border-radius: 12px;
             font-size: 0.75rem;
             margin-right: 5px;
             margin-bottom: 5px;
-            border: 1px solid rgba(14, 165, 233, 0.3);
+            border: 1px solid rgba(217, 119, 6, 0.3);
         }
 
-        /* Area of interest pills */
         .interest-cloud {
             display: flex;
             flex-wrap: wrap;
@@ -267,9 +280,8 @@
             color: var(--text-muted);
         }
 
-        /* Footer */
         footer {
-            background-color: #060910;
+            background-color: #12100e;
             text-align: center;
             padding: 35px 8%;
             border-top: 1px solid var(--border-color);
@@ -317,17 +329,22 @@
 
     <!-- Hero Section -->
     <section class="hero" id="about">
+        <!-- আপনার প্রফেশনাল ছবি (ছবিটির নাম গিটহাবে 'WhatsApp Image 2026-10-31 at 2.35.01 gnnnrethneh.jpeg' হিসেবে আপলোড করে দেবেন) -->
+        <div class="profile-img-container">
+            <img src="WhatsApp Image 2026-10-31 at 2.35.01 gnnnrethneh.jpeg" alt="Ripon Islam">
+        </div>
+
         <h1>Hi, I'm <span>Ripon Islam</span></h1>
         <h3>Mechanical Engineering Student | CAD, Manufacturing & Simulation | Robotics</h3>
-        <p>Mechanical Engineering student at RUET with practical experience in SOLIDWORKS, mechanical design, 3D printing, and robotics[cite: 6]. Skilled in CAD modeling, assembly, and engineering drawing[cite: 6].</p>
+        <p>Mechanical Engineering student at RUET with practical experience in SOLIDWORKS, mechanical design, 3D printing, and robotics. Skilled in CAD modeling, assembly, and engineering drawing.</p>
         
         <div class="contact-pills">
             <span class="pill">📍 Rajshahi, Bangladesh</span>
-            <span class="pill">📞 01308122050[cite: 6]</span>
-            <span class="pill">✉️ ripon2402156@gmail.com[cite: 6]</span>
+            <a href="https://wa.me/8801308122050" target="_blank" class="pill">💬 WhatsApp: 01308122050</a>
+            <span class="pill">✉️ ripon2402156@gmail.com</span>
             <a href="https://www.linkedin.com" target="_blank" class="pill">🔗 LinkedIn Profile</a>
-            <a href="https://grabcad.com" target="_blank" class="pill">📐 GrabCAD Designs</a>
-            <a href="https://drive.google.com" target="_blank" class="pill">📄 Cad Design PDF (Drive)</a>
+            <a href="https://grabcad.com/ripon.islam-1" target="_blank" class="pill">📐 GrabCAD Profile</a>
+            <a href="https://drive.google.com/drive/folders/19SAVT3to7a7cpUAXcczlg2TTxDoixxFT" target="_blank" class="pill">📂 My Design Files (Drive)</a>
         </div>
 
         <a href="#projects" class="btn">View Engineering Projects</a>
@@ -340,63 +357,63 @@
         <div class="grid-2">
             <div class="card">
                 <h3>CAD & Design</h3>
-                <p>SOLIDWORKS (Part Modeling, Assembly, Engineering Drawing) proficient; Onshape working knowledge, Fusion 360[cite: 6].</p>
+                <p>SOLIDWORKS (Part Modeling, Assembly, Engineering Drawing) proficient; Onshape working knowledge, Fusion 360.</p>
             </div>
             <div class="card">
                 <h3>Simulation & Analysis</h3>
-                <p>ANSYS Mechanical Basic Modal Analysis, Explicit Dynamics; Finite Element Analysis (FEA) fundamentals[cite: 6].</p>
+                <p>ANSYS Mechanical Basic Modal Analysis, Explicit Dynamics; Finite Element Analysis (FEA) fundamentals.</p>
             </div>
             <div class="card">
                 <h3>Manufacturing</h3>
-                <p>3D Printing, Mechanical Assembly & Fabrication, Design for Manufacturability (DFM)[cite: 6].</p>
+                <p>3D Printing, Mechanical Assembly & Fabrication, Design for Manufacturability (DFM).</p>
             </div>
             <div class="card">
                 <h3>Engineering Practice & Soft Skills</h3>
-                <p>Mechanical System Integration & Testing, Prototyping, Design Optimization, Troubleshooting, Team Leadership[cite: 6].</p>
+                <p>Mechanical System Integration & Testing, Prototyping, Design Optimization, Troubleshooting, Team Leadership.</p>
             </div>
         </div>
     </section>
 
     <!-- Engineering Experience -->
-    <section id="experience" style="background-color: rgba(17, 24, 39, 0.4);">
+    <section id="experience" style="background-color: rgba(41, 37, 36, 0.3);">
         <h2 class="section-title">Engineering Experience</h2>
         <div class="grid-2">
             <div class="card">
                 <h3>Robotics Research Associate</h3>
                 <h4>RIVO AI Robotics</h4>
-                <span class="date">Jul 2026 - Present[cite: 6]</span>
+                <span class="date">Jul 2026 - Present</span>
                 <ul>
-                    <li>Contributing to humanoid robot mechanical design and CAD development[cite: 6].</li>
-                    <li>Developing robot components through 3D printing and fabrication[cite: 6].</li>
-                    <li>Supporting mechanical assembly, integration, and testing[cite: 6].</li>
-                    <li>Participating in robotics research and development[cite: 6].</li>
+                    <li>Contributing to humanoid robot mechanical design and CAD development.</li>
+                    <li>Developing robot components through 3D printing and fabrication.</li>
+                    <li>Supporting mechanical assembly, integration, and testing.</li>
+                    <li>Participating in robotics research and development.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>R&D Team Member</h3>
                 <h4>Team Zenith RUET (Mars Rover Team)</h4>
-                <span class="date">2026 - Present[cite: 6]</span>
+                <span class="date">2026 - Present</span>
                 <ul>
-                    <li>Contributing to Mars Rover research, mechanical design, and development[cite: 6].</li>
-                    <li>Working on CAD modeling, prototyping, and design optimization[cite: 6].</li>
+                    <li>Contributing to Mars Rover research, mechanical design, and development.</li>
+                    <li>Working on CAD modeling, prototyping, and design optimization.</li>
                     <li>Previously Junior Designer, Mechanical Team (Mar 2026 - 2026) designing chassis, suspension, and mobility systems.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Executive Member</h3>
                 <h4>Society of Computer Aided Designers, RUET (SCADR)</h4>
-                <span class="date">Jul 2026 - Present (Member: Aug 2025 - Jul 2026)[cite: 7]</span>
+                <span class="date">Jul 2026 - Present (Member: Aug 2025 - Jul 2026)</span>
                 <ul>
-                    <li>Serving in an executive capacity supporting CAD workshops, design training sessions, and organizational activities[cite: 7].</li>
-                    <li>Completed structured SOLIDWORKS training organized by SCADR[cite: 7].</li>
+                    <li>Serving in an executive capacity supporting CAD workshops, design training sessions, and organizational activities.</li>
+                    <li>Completed structured SOLIDWORKS training organized by SCADR.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>General Member</h3>
                 <h4>IMechE RUET Student Chapter</h4>
-                <span class="date">Sep 2025 - Present[cite: 7]</span>
+                <span class="date">Sep 2025 - Present</span>
                 <ul>
-                    <li>Participating in professional development sessions and engineering seminars organized by IMechE[cite: 7].</li>
+                    <li>Participating in professional development sessions and engineering seminars organized by IMechE.</li>
                 </ul>
             </div>
         </div>
@@ -409,26 +426,26 @@
             <div class="card">
                 <h3>B.Sc. in Mechanical Engineering</h3>
                 <h4>Rajshahi University of Engineering & Technology (RUET)</h4>
-                <span class="date">May 2025 - Present[cite: 6]</span>
-                <p>Rajshahi, Bangladesh[cite: 6]</p>
+                <span class="date">May 2025 - Present</span>
+                <p>Rajshahi, Bangladesh</p>
             </div>
             <div class="card">
                 <h3>Higher Secondary Certificate (HSC), Science</h3>
                 <h4>Nilphamari Government College</h4>
-                <span class="date">Feb 2023 - Jun 2024[cite: 6]</span>
-                <p>GPA: 5.00 / 5.00[cite: 6]</p>
+                <span class="date">Feb 2023 - Jun 2024</span>
+                <p>GPA: 5.00 / 5.00</p>
             </div>
             <div class="card">
                 <h3>Secondary School Certificate (SSC), Science</h3>
                 <h4>Al-Hera Educare Home High School</h4>
-                <span class="date">Jan 2017 - Jun 2022[cite: 6]</span>
-                <p>GPA: 5.00 / 5.00 | Jaldhaka, Nilphamari[cite: 6]</p>
+                <span class="date">Jan 2017 - Jun 2022</span>
+                <p>GPA: 5.00 / 5.00 | Jaldhaka, Nilphamari</p>
             </div>
         </div>
     </section>
 
     <!-- Engineering Projects -->
-    <section id="projects" style="background-color: rgba(17, 24, 39, 0.4);">
+    <section id="projects" style="background-color: rgba(41, 37, 36, 0.3);">
         <h2 class="section-title">Selected Engineering Projects</h2>
         <div class="grid-3">
             <div class="card">
@@ -443,8 +460,8 @@
             </div>
             <div class="card">
                 <h3>Mars Rover Subsystem Design</h3>
-                <span class="date">Team Zenith RUET | 2026[cite: 7]</span>
-                <p>Developed SOLIDWORKS CAD models for a competition-level Mars Rover, focusing on chassis structure, suspension geometry, and mobility mechanisms[cite: 7].</p>
+                <span class="date">Team Zenith RUET | 2026</span>
+                <p>Developed SOLIDWORKS CAD models for a competition-level Mars Rover, focusing on chassis structure, suspension geometry, and mobility mechanisms.</p>
                 <div class="tags">
                     <span class="tag">SOLIDWORKS</span>
                     <span class="tag">Chassis & Suspension</span>
@@ -453,8 +470,8 @@
             </div>
             <div class="card">
                 <h3>Drone Payload Drop Mechanism</h3>
-                <span class="date">Independent Project | 2025 - 2026[cite: 7]</span>
-                <p>Modeled a custom mechanical payload release system integrated with a carbon-fiber quadcopter frame[cite: 7] for remote-triggered operations.</p>
+                <span class="date">Independent Project | 2025 - 2026</span>
+                <p>Modeled a custom mechanical payload release system integrated with a carbon-fiber quadcopter frame for remote-triggered operations.</p>
                 <div class="tags">
                     <span class="tag">SOLIDWORKS</span>
                     <span class="tag">UAV Payload</span>
@@ -463,8 +480,8 @@
             </div>
             <div class="card">
                 <h3>CAD-to-Manufacture Kiosk</h3>
-                <span class="date">Independent Project | 2025 - 2026[cite: 7]</span>
-                <p>Designed a kiosk structure in SOLIDWORKS and carried it through to a physically fabricated final product, gaining exposure to the full design-to-manufacture workflow[cite: 7].</p>
+                <span class="date">Independent Project | 2025 - 2026</span>
+                <p>Designed a kiosk structure in SOLIDWORKS and carried it through to a physically fabricated final product, gaining exposure to the full design-to-manufacture workflow.</p>
                 <div class="tags">
                     <span class="tag">SOLIDWORKS</span>
                     <span class="tag">Fabrication</span>
@@ -473,8 +490,8 @@
             </div>
             <div class="card">
                 <h3>Additional Design Practice</h3>
-                <span class="date">2025 - 2026[cite: 7]</span>
-                <p>Wheelchair assembly, gear-train mechanisms, and aerospace/rocket concept models, building proficiency across assemblies and technical drawings[cite: 7].</p>
+                <span class="date">2025 - 2026</span>
+                <p>Wheelchair assembly, gear-train mechanisms, and aerospace/rocket concept models, building proficiency across assemblies and technical drawings.</p>
                 <div class="tags">
                     <span class="tag">Assemblies</span>
                     <span class="tag">Aerospace Concepts</span>
@@ -490,25 +507,25 @@
             <div class="card">
                 <h3>🏆 Competitions & Achievements</h3>
                 <ul>
-                    <li><strong>7th Position & Team Lead</strong> - KUET Ignition '26 National CAD Contest (Team Axis Trinity)[cite: 7].</li>
-                    <li><strong>4th Position</strong> - MIST Blitz CAD Clash 2026, 1st Bangladesh Formula Student & Automotive Engineering Summit[cite: 6, 7].</li>
-                    <li><strong>Participant</strong> - CELESTRA 26 CAD Competition, MIST[cite: 7].</li>
+                    <li><strong>7th Position & Team Lead</strong> - KUET Ignition '26 National CAD Contest (Team Axis Trinity).</li>
+                    <li><strong>4th Position</strong> - MIST Blitz CAD Clash 2026, 1st Bangladesh Formula Student & Automotive Engineering Summit.</li>
+                    <li><strong>Participant</strong> - CELESTRA 26 CAD Competition, MIST.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>📜 Certifications</h3>
                 <ul>
-                    <li>SOLIDWORKS Part Modeling, Basic Assembly and Drawing Training, SCADR RUET (Jul 2026)[cite: 6, 7].</li>
-                    <li>Certificate of Participation (4th Position) - CAD Clash, MIST Blitz (Jun 2026)[cite: 7].</li>
-                    <li>Certificate of Achievement (7th Position) - Ignition 2026, KUET (Apr 2026)[cite: 7].</li>
-                    <li>Certificate of Achievement - CELESTRA 26, MIST Eindhoven Club (Mar 2026)[cite: 7].</li>
+                    <li>SOLIDWORKS Part Modeling, Basic Assembly and Drawing Training, SCADR RUET (Jul 2026).</li>
+                    <li>Certificate of Participation (4th Position) - CAD Clash, MIST Blitz (Jun 2026).</li>
+                    <li>Certificate of Achievement (7th Position) - Ignition 2026, KUET (Apr 2026).</li>
+                    <li>Certificate of Achievement - CELESTRA 26, MIST Eindhoven Club (Mar 2026).</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- Areas of Interest -->
-    <section style="background-color: rgba(17, 24, 39, 0.4); text-align: center;">
+    <section style="background-color: rgba(41, 37, 36, 0.3); text-align: center;">
         <h2 class="section-title">Areas of Interest</h2>
         <div class="interest-cloud">
             <span class="interest-item">Mechanical Design</span>
@@ -526,14 +543,15 @@
     <!-- Footer / Contact -->
     <footer id="contact">
         <h2 style="color: #fff; margin-bottom: 10px; font-size: 1.5rem;">Let's Connect</h2>
-        <p>Rajshahi, Bangladesh | Languages: Bengali (Native), English (Professional Working Proficiency)[cite: 6]</p>
+        <p>Rajshahi, Bangladesh | Languages: Bengali (Native), English (Professional Working Proficiency)</p>
         <div class="social-links">
             <a href="https://github.com/Ripon-8922" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-            <a href="https://grabcad.com" target="_blank">GrabCAD</a>
+            <a href="https://grabcad.com/ripon.islam-1" target="_blank">GrabCAD</a>
+            <a href="https://drive.google.com/drive/folders/19SAVT3to7a7cpUAXcczlg2TTxDoixxFT" target="_blank">Design Files</a>
             <a href="mailto:ripon2402156@gmail.com">Email</a>
         </div>
-        <p style="margin-top: 25px; font-size: 0.8rem; color: #6b7280;">&copy; 2026 Ripon Islam. All rights reserved.</p>
+        <p style="margin-top: 25px; font-size: 0.8rem; color: #78716c;">&copy; 2026 Ripon Islam. All rights reserved.</p>
     </footer>
 
 </body>
