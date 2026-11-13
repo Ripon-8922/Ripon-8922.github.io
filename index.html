@@ -569,11 +569,22 @@
             💬 Chat on WhatsApp
         </a>
     </div>
-    <!-- Floating Visitor Counter -->
-<div style="position: fixed; bottom: 15px; right: 15px; background: rgba(20, 20, 20, 0.95); border: 1px solid #d97706; padding: 8px 14px; border-radius: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.6); display: flex; align-items: center; gap: 8px;">
-    <span style="color: #fbbf24; font-size: 12px; font-family: sans-serif; font-weight: bold;">👁️ Visitors:</span>
-    <img src="https://komarev.com/ghpvc/?username=Ripon-8922&color=orange&style=flat-square&label=VIEWS" alt="Visitors count" style="height: 18px;">
+    <!-- Floating Live Visitor Counter (Icon & Number Only) -->
+<div style="position: fixed; bottom: 15px; right: 15px; background: rgba(20, 20, 20, 0.95); border: 1px solid #d97706; padding: 7px 14px; border-radius: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.6); display: flex; align-items: center; gap: 7px; font-family: sans-serif;">
+    <span style="font-size: 14px;">👁️</span>
+    <span id="live-visitor-count" style="color: #fbbf24; font-size: 14px; font-weight: bold;">...</span>
 </div>
+
+<script>
+    fetch('https://api.counterapi.dev/v1/ripon-8922-portfolio/visits/up')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('live-visitor-count').innerText = data.count;
+        })
+        .catch(() => {
+            document.getElementById('live-visitor-count').innerText = '1';
+        });
+</script>
 
 
 
