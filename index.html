@@ -346,6 +346,65 @@
         <div class="profile-img-container">
             <img src="profile1.jpg" alt="Ripon Islam">
         </div>
+        <!-- Animated Planetary Gearbox -->
+<div class="planetary-box">
+    <svg viewBox="-120 -120 240 240" width="140" height="140" style="overflow: visible;">
+        <defs>
+            <filter id="amber-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#d97706" flood-opacity="0.4"/>
+            </filter>
+        </defs>
+        <g id="ring-gear" filter="url(#amber-glow)">
+            <circle cx="0" cy="0" r="105" fill="none" stroke="#44403c" stroke-width="10" />
+            <circle cx="0" cy="0" r="98" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="8 6" />
+        </g>
+        <g id="planet-carrier">
+            <path d="M 0,0 L 0,-56 M 0,0 L 48.5,28 M 0,0 L -48.5,28" stroke="#78716c" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+            <g transform="translate(0, -56)">
+                <g class="planet-gear">
+                    <circle cx="0" cy="0" r="24" fill="#1c1917" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4"/>
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="#d97706" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#fbbf24"/>
+                </g>
+            </g>
+            <g transform="translate(48.5, 28)">
+                <g class="planet-gear">
+                    <circle cx="0" cy="0" r="24" fill="#1c1917" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4"/>
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="#d97706" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#fbbf24"/>
+                </g>
+            </g>
+            <g transform="translate(-48.5, 28)">
+                <g class="planet-gear">
+                    <circle cx="0" cy="0" r="24" fill="#1c1917" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4"/>
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="#d97706" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#fbbf24"/>
+                </g>
+            </g>
+        </g>
+        <g id="sun-gear" filter="url(#amber-glow)">
+            <circle cx="0" cy="0" r="30" fill="#292524" stroke="#fbbf24" stroke-width="4" stroke-dasharray="7 4.5"/>
+            <circle cx="0" cy="0" r="18" fill="#1c1917" stroke="#d97706" stroke-width="2"/>
+            <circle cx="0" cy="0" r="7" fill="#fbbf24"/>
+            <rect x="-2" y="-10" width="4" height="5" fill="#fbbf24"/>
+        </g>
+    </svg>
+</div>
+
+<style>
+    .planetary-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        opacity: 0.95;
+    }
+    #sun-gear { animation: spinCW 4s linear infinite; }
+    #planet-carrier { animation: spinCW 12s linear infinite; }
+    .planet-gear { animation: spinCCW 4.8s linear infinite; }
+    @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+</style>
 
         <h1>Hi, I'm <span>Ripon Islam</span></h1>
         <h3>Mechanical Engineering Student | CAD, Manufacturing & Simulation | Robotics</h3>
