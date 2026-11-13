@@ -570,22 +570,11 @@
         </a>
     </div>
     <!-- Floating Live Visitor Counter (Icon & Number Only) -->
-<div style="position: fixed; bottom: 15px; right: 15px; background: rgba(20, 20, 20, 0.95); border: 1px solid #d97706; padding: 7px 14px; border-radius: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.6); display: flex; align-items: center; gap: 7px; font-family: sans-serif;">
+<!-- Floating Visitor Counter (Clean & Direct) -->
+<div style="position: fixed; bottom: 15px; right: 15px; background: rgba(20, 20, 20, 0.95); border: 1px solid #d97706; padding: 8px 14px; border-radius: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.6); display: flex; align-items: center; gap: 8px;">
     <span style="font-size: 14px;">👁️</span>
-    <span id="live-visitor-count" style="color: #fbbf24; font-size: 14px; font-weight: bold;">...</span>
+    <img src="https://counter8.optistat.ovh/private/freecounterstat.ujukan?c=6rrmq912s9p4z238b71d6h7756f1837l" alt="Visitors" style="height: 18px; display: block;">
 </div>
-
-<script>
-    fetch('https://api.counterapi.dev/v1/ripon-8922-portfolio/visits/up')
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('live-visitor-count').innerText = data.count;
-        })
-        .catch(() => {
-            document.getElementById('live-visitor-count').innerText = '1';
-        });
-</script>
-
 
 
 </body>
