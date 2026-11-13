@@ -71,6 +71,7 @@
             padding: 80px 8%;
             text-align: center;
             background: radial-gradient(circle at center, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
+            position: relative; /* গিয়ারবক্স সাইডে পজিশন করার জন্য জরুরি */
         }
 
         /* প্রফেশনাল গোল রাউন্ড প্রোফাইল পিকচার স্টাইল */
@@ -82,6 +83,8 @@
             overflow: hidden;
             border: 3px solid var(--accent);
             box-shadow: 0 0 20px var(--accent-glow);
+            position: relative;
+            z-index: 2;
         }
 
         .profile-img-container img {
@@ -89,6 +92,31 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Planetary Gearbox Side Styling */
+        .planetary-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            opacity: 0.95;
+        }
+
+        @media (min-width: 900px) {
+            .planetary-box {
+                position: absolute;
+                top: 95px;
+                right: calc(50% - 190px); /* প্রোফাইল ছবির ঠিক ডানপাশে নিখুঁতভাবে বসানোর জন্য */
+                margin: 0;
+                z-index: 10;
+            }
+        }
+
+        #sun-gear { animation: spinCW 4s linear infinite; }
+        #planet-carrier { animation: spinCW 12s linear infinite; }
+        .planet-gear { animation: spinCCW 4.8s linear infinite; }
+        @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
 
         .hero h1 {
             font-size: 3rem;
@@ -326,53 +354,58 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
-    <!-- Animated Mechanical Gear -->
-<div style="display: flex; justify-content: center; align-items: center; margin: 15px 0;">
-    <div style="font-size: 40px; animation: spinGear 8s linear infinite; display: inline-block; filter: drop-shadow(0 0 8px rgba(217, 119, 6, 0.6));">
-        ⚙️
-    </div>
-</div>
-
-<style>
-@keyframes spinGear {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-</style>
 
     <!-- Hero Section -->
     <section class="hero" id="about">
-        <!-- আপনার প্রফেশনাল ছবি (ছবিটির নাম গিটহাবে 'WhatsApp Image 2026-10-31 at 2.35.01 gnnnrethneh.jpeg' হিসেবে আপলোড করে দেবেন) -->
+        <!-- প্রফেশনাল গোল রাউন্ড প্রোফাইল ছবি -->
         <div class="profile-img-container">
             <img src="profile1.jpg" alt="Ripon Islam">
         </div>
-        <!-- Animated Planetary Gearbox -->
-<style>
-    .planetary-box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px auto;
-        opacity: 0.95;
-    }
 
-    /* ডেস্কটপে প্রোফাইল ছবির ডান পাশের ফাঁকা জায়গায় ফিক্সড করার জন্য */
-    @media (min-width: 900px) {
-        .planetary-box {
-            position: absolute;
-            top: 230px; /* ওপর থেকে পজিশন */
-            right: calc(50% - 220px); /* ঠিক ছবির ডানপাশে সেট করার জন্য */
-            margin: 0;
-            z-index: 10;
-        }
-    }
-
-    #sun-gear { animation: spinCW 4s linear infinite; }
-    #planet-carrier { animation: spinCW 12s linear infinite; }
-    .planet-gear { animation: spinCCW 4.8s linear infinite; }
-    @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
-</style>
+        <!-- Animated Planetary Gearbox (প্রোফাইল পিকচারের পাশে) -->
+        <div class="planetary-box">
+            <svg viewBox="-120 -120 240 240" width="130" height="130" style="overflow: visible;">
+                <defs>
+                    <filter id="amber-glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#d97706" flood-opacity="0.4"/>
+                    </filter>
+                </defs>
+                <g id="ring-gear" filter="url(#amber-glow)">
+                    <circle cx="0" cy="0" r="105" fill="none" stroke="#44403c" stroke-width="10" />
+                    <circle cx="0" cy="0" r="98" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="8 6" />
+                </g>
+                <g id="planet-carrier">
+                    <path d="M 0,0 L 0,-56 M 0,0 L 48.5,28 M 0,0 L -48.5,28" stroke="#78716c" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+                    <g transform="translate(0, -56)">
+                        <g class="planet-gear">
+                            <circle cx="0" cy="0" r="24" fill="#1c1917" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4"/>
+                            <circle cx="0" cy="0" r="14" fill="none" stroke="#d97706" stroke-width="2"/>
+                            <circle cx="0" cy="0" r="4" fill="#fbbf24"/>
+                        </g>
+                    </g>
+                    <g transform="translate(48.5, 28)">
+                        <g class="planet-gear">
+                            <circle cx="0" cy="0" r="24" fill="#1c1917" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4"/>
+                            <circle cx="0" cy="0" r="14" fill="none" stroke="#d97706" stroke-width="2"/>
+                            <circle cx="0" cy="0" r="4" fill="#fbbf24"/>
+                        </g>
+                    </g>
+                    <g transform="translate(-48.5, 28)">
+                        <g class="planet-gear">
+                            <circle cx="0" cy="0" r="24" fill="#1c1917" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4"/>
+                            <circle cx="0" cy="0" r="14" fill="none" stroke="#d97706" stroke-width="2"/>
+                            <circle cx="0" cy="0" r="4" fill="#fbbf24"/>
+                        </g>
+                    </g>
+                </g>
+                <g id="sun-gear" filter="url(#amber-glow)">
+                    <circle cx="0" cy="0" r="30" fill="#292524" stroke="#fbbf24" stroke-width="4" stroke-dasharray="7 4.5"/>
+                    <circle cx="0" cy="0" r="18" fill="#1c1917" stroke="#d97706" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="7" fill="#fbbf24"/>
+                    <rect x="-2" y="-10" width="4" height="5" fill="#fbbf24"/>
+                </g>
+            </svg>
+        </div>
 
         <h1>Hi, I'm <span>Ripon Islam</span></h1>
         <h3>Mechanical Engineering Student | CAD, Manufacturing & Simulation | Robotics</h3>
@@ -602,27 +635,23 @@
         </div>
         <p style="margin-top: 25px; font-size: 0.8rem; color: #78716c;">&copy; 2026 Ripon Islam. All rights reserved.</p>
     </footer>
-    <!-- Floating Visitor Counter -->
-    <!-- Direct WhatsApp Message Button -->
-   <!-- Floating Modern WhatsApp & Visitor Counter -->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; font-family: sans-serif;">
-    
-    <!-- WhatsApp Chat Button -->
-    <a href="https://wa.me/+8801308122050?text=Hi%20Ripon,%20I%20visited%20your%20portfolio%20and%20want%20to%20connect!" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 9px 15px; border-radius: 25px; text-decoration: none; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
-        <span style="font-size: 15px;">💬</span> WhatsApp Me
-    </a>
+    <!-- Floating WhatsApp & Live Visitor Counter -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-    <!-- Sleek Live Visitor Counter -->
-    <div style="background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(10px); border: 1px solid #d97706; padding: 6px 14px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 8px;">
-        <span style="font-size: 13px; filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));">👁️</span>
-        <span style="color: #a8a29e; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Visits</span>
-        <span id="busuanzi_value_site_pv" style="color: #fbbf24; font-size: 13px; font-weight: bold;">...</span>
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; font-family: sans-serif;">
+        <!-- WhatsApp Chat Button -->
+        <a href="https://wa.me/8801308122050?text=Hi%20Ripon,%20I%20visited%20your%20portfolio%20and%20want%20to%20connect!" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 9px 15px; border-radius: 25px; text-decoration: none; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+            <span style="font-size: 15px;">💬</span> WhatsApp Me
+        </a>
+
+        <!-- Sleek Live Visitor Counter -->
+        <div style="background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(10px); border: 1px solid #d97706; padding: 6px 14px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 13px; filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));">👁️</span>
+            <span style="color: #a8a29e; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Visits</span>
+            <span id="busuanzi_value_site_pv" style="color: #fbbf24; font-size: 13px; font-weight: bold;">...</span>
+        </div>
     </div>
-
-</div>
-
 
 </body>
 </html>
